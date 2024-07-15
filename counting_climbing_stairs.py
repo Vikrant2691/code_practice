@@ -12,7 +12,7 @@ class Solution:
         end = len(cost)-2
         
         while end>=0:
-            temp = cost[end] + min(n0,n1)
+            temp = cost[end] + min(n0,n1)   
             n1 = n0
             n0 = temp
             end-=1
