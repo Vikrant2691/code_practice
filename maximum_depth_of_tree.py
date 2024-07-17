@@ -9,22 +9,11 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        
-        #base case
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
-            return
-      
-        #create a new node
-        new_root = TreeNode()
-       
-        new_root.val = root.val
-        #assign rhs to lhs
-        new_root.left = self.invertTree(root.right)
-        #assign lhs to rhs
-        new_root.right = self.invertTree(root.left)
+            return 0
         
-        return new_root
+        return 1+ max(self.maxDepth(root.left),self.maxDepth(root.right))    
 
 def create_tree(list:List[int],i) -> Optional[TreeNode]:
     
@@ -41,5 +30,5 @@ def create_tree(list:List[int],i) -> Optional[TreeNode]:
     
 tree = [1,2,3,4,5,6,7]
 root = create_tree(tree, 0)
-res = Solution().invertTree(root)
+res = Solution().maxDepth(root)
 print(res)
