@@ -1,1 +1,1 @@
-Solution.goodNodes(root)
+len(str)
